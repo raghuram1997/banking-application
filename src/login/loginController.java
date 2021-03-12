@@ -27,7 +27,7 @@ public class loginController implements Initializable {
     }
     @FXML
     private void createAccount(MouseEvent event) throws IOException {
-         Parent fxml = FXMLLoader.load(getClass().getResource("/createaccount/createAccount.fxml"));
+         Parent fxml = FXMLLoader.load(getClass().getResource("/Createaccount/Createaccount.fxml"));
         
         main_area.getChildren().removeAll();
         main_area.getChildren().addAll(fxml);

@@ -15,7 +15,7 @@
 
 <ScrollPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Createaccount.CreateaccountController">
    <content>
-      <AnchorPane id="AnchorPane" prefHeight="1350.0" prefWidth="450.0" stylesheets="@../design/design.css">
+      <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="450.0" stylesheets="@../design/design.css">
          <children>
             <FontAwesomeIconView glyphName="ARROW_LEFT" layoutX="23.0" layoutY="33.0" onMouseClicked="#backToLogin" size="20" />
             <FontAwesomeIconView glyphName="CLOSE" layoutX="409.0" layoutY="33.0" onMouseClicked="#closeApp" size="20" />
@@ -34,31 +34,31 @@
                   <Font name="Imprint MT Shadow" size="24.0" />
                </font>
             </Label>
-            <TextField layoutX="77.0" layoutY="207.0" prefHeight="38.0" prefWidth="340.0" promptText="Full Name" styleClass="field-decoration">
+            <TextField fx:id="name" layoutX="77.0" layoutY="207.0" prefHeight="38.0" prefWidth="340.0" promptText="Full Name" styleClass="field-decoration">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField layoutX="77.0" layoutY="260.0" prefHeight="38.0" prefWidth="340.0" promptText="ID Card No" styleClass="field-decoration">
+            <TextField fx:id="idcardno" layoutX="77.0" layoutY="260.0" prefHeight="38.0" prefWidth="340.0" promptText="ID Card No" styleClass="field-decoration">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField layoutX="77.0" layoutY="313.0" prefHeight="38.0" prefWidth="340.0" promptText="Mobile Number" styleClass="field-decoration">
+            <TextField fx:id="mobileno" layoutX="77.0" layoutY="313.0" prefHeight="38.0" prefWidth="340.0" promptText="Mobile Number" styleClass="field-decoration">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <ComboBox layoutX="77.0" layoutY="363.0" prefHeight="38.0" prefWidth="340.0" promptText="Gender" styleClass="field-decoration" />
-            <ComboBox layoutX="77.0" layoutY="416.0" prefHeight="38.0" prefWidth="340.0" promptText="Marital status" styleClass="field-decoration" />
-            <DatePicker layoutX="77.0" layoutY="524.0" prefHeight="38.0" prefWidth="340.0" promptText="Date of Birth" />
-            <ComboBox layoutX="77.0" layoutY="470.0" prefHeight="38.0" prefWidth="340.0" promptText="Religion" styleClass="field-decoration" />
-            <TextField layoutX="77.0" layoutY="581.0" prefHeight="38.0" prefWidth="340.0" promptText="City" styleClass="field-decoration">
+            <ComboBox fx:id="gender" layoutX="77.0" layoutY="363.0" prefHeight="38.0" prefWidth="340.0" promptText="Gender" styleClass="field-decoration" />
+            <ComboBox fx:id="martialstatus" layoutX="77.0" layoutY="416.0" prefHeight="38.0" prefWidth="340.0" promptText="Marital status" styleClass="field-decoration" />
+            <DatePicker fx:id="dob" layoutX="77.0" layoutY="524.0" prefHeight="38.0" prefWidth="340.0" promptText="Date of Birth" />
+            <ComboBox fx:id="religion" layoutX="77.0" layoutY="470.0" prefHeight="38.0" prefWidth="340.0" promptText="Religion" styleClass="field-decoration" />
+            <TextField fx:id="city" layoutX="77.0" layoutY="581.0" prefHeight="38.0" prefWidth="340.0" promptText="City" styleClass="field-decoration">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField layoutX="77.0" layoutY="637.0" prefHeight="38.0" prefWidth="340.0" promptText="Address" styleClass="field-decoration">
+            <TextField fx:id="address" layoutX="77.0" layoutY="637.0" prefHeight="38.0" prefWidth="340.0" promptText="Address" styleClass="field-decoration">
                <font>
                   <Font size="18.0" />
                </font>
@@ -68,29 +68,29 @@
                   <Font name="Imprint MT Shadow" size="24.0" />
                </font>
             </Label>
-            <TextField layoutX="77.0" layoutY="732.0" prefHeight="38.0" prefWidth="340.0" promptText="Account no " styleClass="field-decoration">
+            <TextField fx:id="accountno" layoutX="77.0" layoutY="732.0" prefHeight="38.0" prefWidth="340.0" promptText="Account no " styleClass="field-decoration">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField layoutX="77.0" layoutY="781.0" prefHeight="38.0" prefWidth="340.0" promptText="Balance" styleClass="field-decoration">
+            <TextField fx:id="balance" layoutX="77.0" layoutY="781.0" prefHeight="38.0" prefWidth="340.0" promptText="Balance" styleClass="field-decoration">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <ComboBox layoutX="77.0" layoutY="831.0" prefHeight="38.0" prefWidth="340.0" promptText="Account Type" styleClass="field-decoration" />
-            <PasswordField layoutX="77.0" layoutY="883.0" prefHeight="38.0" prefWidth="340.0" promptText="PIN" styleClass="field-decoration">
+            <ComboBox fx:id="accounttype" layoutX="77.0" layoutY="831.0" prefHeight="38.0" prefWidth="340.0" promptText="Account Type" styleClass="field-decoration" />
+            <PasswordField fx:id="pin" layoutX="77.0" layoutY="883.0" prefHeight="38.0" prefWidth="340.0" promptText="PIN" styleClass="field-decoration">
                <font>
                   <Font size="18.0" />
                </font>
             </PasswordField>
-            <ComboBox layoutX="77.0" layoutY="933.0" prefHeight="38.0" prefWidth="340.0" promptText="Security Question" styleClass="field-decoration" />
-            <TextField layoutX="77.0" layoutY="981.0" prefHeight="38.0" prefWidth="340.0" promptText="Answer" styleClass="field-decoration">
+            <ComboBox fx:id="questions" layoutX="77.0" layoutY="933.0" prefHeight="38.0" prefWidth="340.0" promptText="Security Question" styleClass="field-decoration" />
+            <TextField fx:id="answer" layoutX="77.0" layoutY="981.0" prefHeight="38.0" prefWidth="340.0" promptText="Answer" styleClass="field-decoration">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="77.0" layoutY="1049.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="pic" fitHeight="150.0" fitWidth="150.0" layoutX="77.0" layoutY="1049.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../../Downloads/ima.png" />
                </image>
@@ -100,12 +100,12 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <Button layoutX="247.0" layoutY="1124.0" mnemonicParsing="false" styleClass="login-button" stylesheets="@../design/design.css" text="Browse Picture">
+            <Button fx:id="browse_pic" layoutX="247.0" layoutY="1124.0" mnemonicParsing="false" onMouseClicked="#setUpPic" styleClass="login-button" stylesheets="@../design/design.css" text="Browse Picture">
                <graphic>
                   <FontAwesomeIconView glyphName="UPLOAD" styleClass="login-icon" />
                </graphic>
             </Button>
-            <Button layoutX="147.0" layoutY="1221.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="200.0" styleClass="login-button" stylesheets="@../design/design.css" text="Create account">
+            <Button layoutX="147.0" layoutY="1221.0" mnemonicParsing="false" onMouseClicked="#newAccount" prefHeight="38.0" prefWidth="200.0" styleClass="login-button" stylesheets="@../design/design.css" text="Create account">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

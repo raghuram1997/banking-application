@@ -2,9 +2,11 @@
 package login;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import static login.Bankings.stage;
@@ -15,6 +17,8 @@ import static login.Bankings.stage;
  */
 public class Bankings extends Application {
     public static Stage stage = null;
+    private double xOffset = 0;
+    private double yOffset = 0;
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -25,15 +29,32 @@ public class Bankings extends Application {
         scene.getStylesheets().add(getClass().getResource("/design/design.css").toExternalForm());
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
-        this.stage = stage;
-        stage.show();
+        root.setOnMousePressed(new EventHandler <MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event){
+                    xOffset = event.getSceneX();
+                    yOffset = event.getSceneY();
+        }
+        });             
+    
+                
+        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+            
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+
     }
+            });
+       this.stage = stage;
+       stage.show();
+    }
+};
+      
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        launch(args);
-    }
     
-}
+    
