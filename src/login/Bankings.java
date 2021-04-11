@@ -11,10 +11,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import static login.Bankings.stage;
 
-/**
- *
- * @author sri vigneswara
- */
+
 public class Bankings extends Application {
     public static Stage stage = null;
     private double xOffset = 0;
@@ -53,8 +50,5 @@ public class Bankings extends Application {
 };
       
 
-    /**
-     * @param args the command line arguments
-     */
-    
+        
     

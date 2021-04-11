@@ -17,14 +17,14 @@
    <content>
       <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="450.0" stylesheets="@../design/design.css">
          <children>
-            <FontAwesomeIconView glyphName="ARROW_LEFT" layoutX="23.0" layoutY="33.0" onMouseClicked="#backToLogin" size="20" />
+            <FontAwesomeIconView glyphName="ARROW_LEFT" layoutX="24.0" layoutY="34.0" onMouseClicked="#backToLogin" size="20" text="" />
             <FontAwesomeIconView glyphName="CLOSE" layoutX="409.0" layoutY="33.0" onMouseClicked="#closeApp" size="20" />
             <Label layoutX="96.0" layoutY="65.0" text="Account Registration">
                <font>
                   <Font name="Impact" size="30.0" />
                </font>
             </Label>
-            <Label layoutX="96.0" layoutY="111.0" text="Fill the Form Carefully to Create account">
+            <Label layoutX="96.0" layoutY="111.0" prefHeight="14.0" prefWidth="248.0" text="Fill the Form Carefully to Create account">
                <font>
                   <Font size="14.0" />
                </font>

@@ -8,7 +8,10 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -87,18 +90,120 @@ public class CreateaccountController implements Initializable {
         if(file!=null){
             Image img = new Image(file.toURI().toString(), 150,150, true, true);
             pic.setImage(img);
-            pic.setPreserveRatio(true);
-                  
+            pic.setPreserveRatio(true);                 
+        
         }
     }
+    public boolean validateName(){
+        Pattern p = Pattern.compile("[a-zA-Z ]+");
+        Matcher m = p.matcher(name.getText());
+        if(m.find() && m.group().equals(name.getText())){
+            return true;
+        }
+        else{
+             Alert a = new Alert(AlertType.ERROR);
+             a.setTitle("Wrong Name");
+             a.setHeaderText("Your Name is Wrong");
+             a.setContentText("Please enter character only in name. TRY AGAIN!!!");
+             a.showAndWait();
+             return false;
+        }
+    }
+     public boolean validateMobileNo(){
+        Pattern p = Pattern.compile("[0-9]+");
+        Matcher m = p.matcher(mobileno.getText());
+        if(m.find() && m.group().equals(mobileno.getText())){
+            return true;
+        }
+        else{
+             Alert a = new Alert(AlertType.ERROR);
+             a.setTitle("Wrong Mobile No");
+             a.setHeaderText("Your Mobile No is Wrong");
+             a.setContentText("Please enter correct mobile number. TRY AGAIN!!!");
+             a.showAndWait();
+             return false;
+        }
+    }
+      public boolean validateIdCardNo(){
+        Pattern p = Pattern.compile("[0-9]+");
+        Matcher m = p.matcher(idcardno.getText());
+        if(m.find() && m.group().equals(idcardno.getText())){
+            return true;
+        }
+        else{
+             Alert a = new Alert(AlertType.ERROR);
+             a.setTitle("Wrong ID card No");
+             a.setHeaderText("Your ID card is Wrong");
+             a.setContentText("Please enter correct ID card. TRY AGAIN!!!");
+             a.showAndWait();
+             return false;
+        }
+    }
+       public boolean validateBalance(){
+        Pattern p = Pattern.compile("[0-9]+");
+        Matcher m = p.matcher(balance.getText());
+        if(m.find() && m.group().equals(balance.getText())){
+            return true;
+        }
+        else{
+             Alert a = new Alert(AlertType.ERROR);
+             a.setTitle("Invalid balance");
+             a.setHeaderText("Your balance is Wrong");
+             a.setContentText("Please enter correct balance. TRY AGAIN!!!");
+             a.showAndWait();
+             return false;
+        }
+    }
+       public boolean validateAccountNo(){
+        Pattern p = Pattern.compile("[a-zA-Z ]+");
+        Matcher m = p.matcher(idcardno.getText());
+        if(m.find() && m.group().equals(idcardno.getText())){
+            return true;
+        }
+        else{
+             Alert a = new Alert(AlertType.ERROR);
+             a.setTitle("Wrong ID card No");
+             a.setHeaderText("Your ID card is Wrong");
+             a.setContentText("Please enter correct ID card. TRY AGAIN!!!");
+             a.showAndWait();
+             return false;
+        }
+    }
+       public void clearAllFields(){
+           name.clear();
+           idcardno.clear();
+           mobileno.clear();
+           gender.getSelectionModel().clearSelection();
+           religion.getSelectionModel().clearSelection();
+           martialstatus.getSelectionModel().clearSelection();
+           dob.getEditor().clear();
+           city.clear();
+           address.clear();
+           pin.clear();
+           accounttype.getSelectionModel().clearSelection();
+           balance.clear();
+           questions.getSelectionModel().clearSelection();
+           answer.clear();
+           Image img = new Image("/images/default_pic.jpg");
+           pic.setImage(img);
+           accountno.setText(String.valueOf(generateAccountNo()));
+           
+       }
+       public int generateAccountNo(){
+           Random rand = new Random();
+           int num = rand.nextInt(899999) + 100000;
+           return num;
+       }
     public void newAccount(MouseEvent event){
         Connection con =null;
         PreparedStatement ps = null;
         
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank", "root", "");
-            String sql = "INSERT INTO userdata(Name, ICN, MobileNo, Gender, Religion, MaritialStatus, DOB, city, Address, AccountNo, PIN, AccountType, Balance, SecurityQuestion, Answer, ProfilePic) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankings", "root", "");
+            
+            if(validateName()  && validateMobileNo() && validateIdCardNo() && validateBalance()){
+            String sql = "INSERT INTO userdata(Name, ICN, MobileNo, Gender, Religion, MartialStatus, DOB, city, Address, AccountNo, PIN, AccountType, Balance, SecurityQuestion, Answer, ProfilePic) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             ps = con.prepareStatement(sql);
             ps.setString(1, name.getText());
             ps.setString(2, idcardno.getText());
@@ -124,6 +229,7 @@ public class CreateaccountController implements Initializable {
                 a.setHeaderText("Account Created Successfully.");
                 a.setContentText("Your account has been created Successfully. You can login with your account no and pin.");
                 a.showAndWait();
+                clearAllFields();
                 }
                 else
                {
@@ -133,12 +239,13 @@ public class CreateaccountController implements Initializable {
                 a.setContentText("Your account is not created. There is some error. TRY AGAIN!!!");
                 a.showAndWait();
                 }
+            }
 
     }catch(Exception e){
         Alert a = new Alert(AlertType.ERROR);
         a.setTitle("Error");
         a.setHeaderText("Error in creating account");
-        a.setContentText("Your account is not created. There is some technical issue." + e.getMessage());
+        a.setContentText("Your account is not created. There is some technical issue.");
         a.showAndWait();
     }
     }
@@ -149,6 +256,8 @@ public class CreateaccountController implements Initializable {
         religion.setItems(list2);
         accounttype.setItems(list3);
         questions.setItems(list4);
+        accountno.setText(String.valueOf(generateAccountNo()));
+        accountno.setEditable(false);
 
     }    
     

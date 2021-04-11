@@ -50,22 +50,22 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <JFXTextField focusColor="#007ff5" labelFloat="true" layoutX="47.0" layoutY="188.0" prefHeight="30.0" prefWidth="300.0" promptText="Account no" unFocusColor="#868686">
+            <JFXTextField fx:id="accountno" focusColor="#007ff5" labelFloat="true" layoutX="47.0" layoutY="188.0" prefHeight="30.0" prefWidth="300.0" promptText="Account no" unFocusColor="#007ff5">
                <font>
                   <Font size="18.0" />
                </font>
             </JFXTextField>
-            <JFXPasswordField focusColor="#007ff5" labelFloat="true" layoutX="47.0" layoutY="242.0" prefHeight="30.0" prefWidth="300.0" promptText="PIN" unFocusColor="#868686">
+            <JFXPasswordField fx:id="pin" focusColor="#007ff5" labelFloat="true" layoutX="47.0" layoutY="242.0" prefHeight="30.0" prefWidth="300.0" promptText="PIN" unFocusColor="#007ff5">
                <font>
                   <Font size="18.0" />
                </font>
             </JFXPasswordField>
-            <Button layoutX="213.0" layoutY="298.0" mnemonicParsing="false" styleClass="login-forgot" stylesheets="@../design/design.css" text="Forgot password?">
+            <Button layoutX="213.0" layoutY="298.0" mnemonicParsing="false" onMouseClicked="#forgotPassword" styleClass="login-forgot" stylesheets="@../design/design.css" text="Forgot password?">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="81.0" layoutY="347.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="login-button" stylesheets="@../design/design.css" text=" Login">
+            <Button layoutX="81.0" layoutY="347.0" mnemonicParsing="false" onMouseClicked="#loginAccount" prefHeight="40.0" prefWidth="200.0" styleClass="login-button" stylesheets="@../design/design.css" text=" Login">
                <font>
                   <Font size="16.0" />
                </font>
